@@ -48,7 +48,11 @@ Foram selecionados 2 itens do Produto A e 1 item do Produto B, logo teremos 3 it
   
 **Arquivos de Design**
 
-	URL : 
+	URL : https://bit.ly/2P0cw5l
+
+## Design Preview
+
+
 
 ## Critérios de Avaliação
 
