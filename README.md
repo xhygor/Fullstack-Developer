@@ -52,7 +52,7 @@ Foram selecionados 2 itens do Produto A e 1 item do Produto B, logo teremos 3 it
 
 ## Design Preview
 
-
+![Preview](https://uploaddeimagens.com.br/images/002/269/261/original/3-novo-pedido.png?1565958536)
 
 ## Critérios de Avaliação
 
