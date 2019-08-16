@@ -49,9 +49,13 @@ Foram selecionados 2 itens do Produto A e 1 item do Produto B, logo teremos 3 it
 
 	URL : https://api.myjson.com/bins/tnjfr
   
-**Arquivos de Design**
+**Design Mockup**
 
 	URL : https://bit.ly/2P0cw5l
+  
+**Arquivos de Design**
+
+	URL : https://bit.ly/306x8dr	
 
 ## Design Preview
 
