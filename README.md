@@ -15,16 +15,19 @@ Parabéns, você passou para a segunda fase do processo seletivo da MáximaTech 
 ## Resumo
 
 Você foi escolhido para escrever uma PoC (Prova de Conceito) de um e-commerce, basicamente o sistema consiste na criação de Pedidos (cliente + produtos + frete).
-Assim, um usuário com acesso ao sistema selecionará a opção e o fluxo de utilização do sistema 
+
+O usuário após logar no sistema selecionará a opção "Novo Pedido" para iniciar a venda. 
 
 ## Seguem os requisitos:
 
-* A stack de tecnologia a ser utilizada é Java (ou Kotlin) + Angular 7 + Spring Boot (com Gradle ou Maven).
+* A stack de tecnologia a ser utilizada é Java (ou Kotlin) + Angular 6 ou Superior + Spring Boot (com Gradle ou Maven).
 * O sistema é composto por 3 microserviços: Serviço Web (Angular) + Serviço Api  (Spring Boot) + Serviço de Cálculo de Frete (Spring Boot).
 * Banco de dados - NoSQL (MongoDB) ou SQL (PostgreSQL)
 * Tela de listagem dos pedidos
 * Todas as informações (JSONs e Pedidos) precisam ser persistidos no banco de dados escolhido.
 * Documento descrevendo o processo de instalação do sistema
+* O fluxo de autenticação é opcional, o mesmo poderá ser mockado para andamento do projeto.
+* O Sistema deverá implementar o fluxo baseado nos arquivos de Design listados no item **Arquivos**
 
 ## Microserviço de Cálculo de Frete
 O microserviço de cálculo de frete terá um webservice que  receberá a quantidade de itens que foram selecionados e multiplicará por um valor aleatório entre R$5,00 e R$10,00. Retornando assim o valor calculado.
