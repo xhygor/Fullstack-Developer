@@ -47,8 +47,8 @@ Foram selecionados 2 itens do Produto A e 1 item do Produto B, logo teremos 3 it
 
 **GET Request -> Dados do Cliente e Produtos**
 
-	** Clientes: http://maximatech.free.beeceptor.com/cliente
-	** Produtos: http://maximatech.free.beeceptor.com/produto
+	Clientes: http://maximatech.free.beeceptor.com/cliente
+	Produtos: http://maximatech.free.beeceptor.com/produto
   
 **Design Mockup**
 
