@@ -1,0 +1,119 @@
+<div fxLayout="column" style="width: 100%">
+  <h1>Novo pedido</h1>
+  <div class="card mat-elevation-z8">
+
+    <h2 style="color: #373A3C; font-size: 23px; line-height: 24px; display: flex">
+      <mat-icon>person_outline</mat-icon>
+      Cliente
+    </h2>
+
+    <mat-form-field appearance="outline" style="width: 596.54px" >
+      <input [formControl]="clienteControl" [matAutocomplete]="cliente" aria-label="Cliente"
+             matInput
+             placeholder="Selecione um cliente"
+             [disabled]="pedidoFinalizado">
+      <mat-autocomplete #cliente="matAutocomplete" autoActiveFirstOption>
+        <mat-option (click)="adicionarCliente(option)" *ngFor="let option of clientesFiltrados | async"
+                    [value]="option.nome">
+          {{option.nome}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+
+
+  <div class="card mat-elevation-z8" fxFlex fxLayout="column">
+
+    <h2 style="color: #373A3C; font-size: 23px; line-height: 24px; display: flex">
+      <mat-icon>add_shopping_cart</mat-icon>
+      Carrinho
+    </h2>
+    <mat-form-field appearance="outline" style="width: 596.54px">
+      <input [formControl]="produtoControl" [matAutocomplete]="produto" aria-label="Produto"
+             matInput
+             placeholder="Selecione um produto" [disabled]="pedidoFinalizado">
+      <mat-autocomplete #produto="matAutocomplete" autoActiveFirstOption>
+        <mat-option (click)="adicionarProduto(produto)" *ngFor="let produto of produtosFiltrados | async"
+                    [value]="produto.nome">
+          <img [src]="produto.imagem" aria-hidden class="example-option-img" height="25">
+          <span>{{produto.nome}}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-list fxFlex fxLayout="column" [disabled]="pedidoFinalizado">
+      <mat-list-item *ngFor="let itemPedido of pedido.itensPedido" fxFlex style="height: 100px">
+        <div fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+          <img [src]="itemPedido.produto.imagem" class="imagemList" mat-list-avatar style="width: 90px; height: 90px">
+
+          <div fxFlex="grow" fxLayout="column">
+            <span style="color: #a7a7a7"> {{itemPedido.produto.codigo}}</span>
+            <span style="font-weight: bold"> {{itemPedido.produto.nome}} </span>
+          </div>
+
+          <div fxFlex="nogrow" fxLayout="column" fxLayoutGap="10px">
+            <div fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+              <span class="qntItens" fxFlex>{{itemPedido.quantidadeItens}}</span>
+              <span fxFlex style="font-size: 14px">x{{itemPedido.produto.precoUnitario |
+                currency: 'BRL': true}}</span>
+            </div>
+            <b fxFlex style="font-size: 16px">{{itemPedido.subTotal | currency: 'BRL': true}}</b>
+          </div>
+
+          <button [disabled]="pedidoFinalizado" (click)="removerProduto(itemPedido)" mat-icon-button style="border: 2px solid #CCCCCC;">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+
+    <div *ngIf="!pedido.itensPedido || pedido.itensPedido.length === 0" fxFlex="40"
+         fxFlexAlign="center" fxLayout="column"
+         fxLayoutAlign="center center" fxLayoutGap="20px">
+      <img src="assets/img/imagem-carrinho-empty-state.png" style="object-fit: cover">
+      <span style="font-weight: bold;font-size: 42px;color:  rgba(0, 0, 0, 0.4)">Carrinho vazio</span>
+      <span style="font-size: 24px;color:  rgba(0, 0, 0, 0.4)">Nenhum produto foi inserido</span>
+
+    </div>
+  </div>
+
+  <div class="card mat-elevation-z8" fxLayout="column" fxLayoutGap="10px">
+
+    <h2 style="color: #373A3C; font-size: 23px; line-height: 24px; display: flex">
+      <mat-icon>calculate</mat-icon>
+      Total
+    </h2>
+
+    <div fxLayout="row" fxLayoutGap="30px">
+
+      <div fxFlex fxLayout="column" fxLayoutGap="20px">
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+          <span class="resumo-text">Itens</span>
+          <span class="resumo-price">{{pedido.total()| currency: 'BRL': true}}</span>
+        </div>
+
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+          <span class="resumo-text">Frete</span>
+          <span class="resumo-price">{{pedido.valorFrete| currency: 'BRL': true}}</span>
+        </div>
+
+        <mat-divider fxFlex></mat-divider>
+
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+          <span class="resumo-text">Total</span>
+          <span class="resumo-price">{{(pedido.total() + pedido.valorFrete)| currency: 'BRL': true}}</span>
+        </div>
+      </div>
+
+      <div fxFlex fxLayout="column" fxLayoutGap="10px">
+        <button [disabled]="pedidoFinalizado" (click)="finalizarPedido()" fxFlex mat-raised-button style="color: #fff; background: #5CB85C">Finalizar
+          pedido
+        </button>
+        <button fxFlex mat-stroked-button (click)="limparPedido()">Limpar carrinho</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

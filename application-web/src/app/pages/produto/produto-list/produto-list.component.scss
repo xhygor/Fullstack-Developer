@@ -1,0 +1,19 @@
+table {
+  width: 100%;
+}
+
+h1 {
+  color: #373A3C;
+  font-size: 26px;
+  line-height: 30px;
+  margin-left: 60px;
+  margin-top: 30px;
+  margin-bottom: 24px;
+}
+
+.truncate-cell {
+  max-width: 550px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

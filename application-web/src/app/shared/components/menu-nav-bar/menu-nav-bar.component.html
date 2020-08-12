@@ -1,0 +1,6 @@
+<button [matMenuTriggerFor]="menu" class="button-menu-nav-bar" mat-button mat-flat-button>{{title}}
+  <mat-icon>expand_more</mat-icon>
+</button>
+<mat-menu #menu="matMenu" class="menu-nav-bar">
+  <app-item-menu-nav-bar *ngFor="let item of itens" [item]="item"></app-item-menu-nav-bar>
+</mat-menu>
