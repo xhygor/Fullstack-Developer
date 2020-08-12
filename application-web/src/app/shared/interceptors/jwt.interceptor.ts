@@ -10,7 +10,7 @@ export class JwtInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     request = request.clone({
       setHeaders: {
-        Authorization: `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMTExMTExMSIsImF1dGgiOiJBRE1JTixVU1VBUklPIiwibmFtZSI6ImFkbWluIiwiZXhwIjoxNTk3MjQ4NzEzfQ.uMpUP4hDiWJLjfdPx_M9mRzkZYNIM2iFG-84PhFYP74RpQXcwLIhLiHqJgBPDlPufe8D7KrHZrkYtsc8F_b4Hw`
+        Authorization: `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMTExMTExMSIsImF1dGgiOiJBRE1JTixVU1VBUklPIiwibmFtZSI6ImFkbWluIiwiZXhwIjoxNTk3Mjg4NjQxfQ.g3GQTrIFGN9mD9zTtwV1AzwGXfJum_eweG2R89vAdXHmd7JjGXqG-vjE-x2IUePbfaefyEBR7AnoE0n8cIcDsA`
       }
     });
     return next.handle(request);
