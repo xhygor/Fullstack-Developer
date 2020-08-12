@@ -9,7 +9,7 @@ import {map} from 'rxjs/operators';
 })
 export class PedidoService {
 
-  private readonly pedidosURL = 'http://localhost:8080/api/pedidos';
+  private readonly pedidosURL = 'https://application-server-maxima-tech.herokuapp.com/api/pedidos';
 
   constructor(private http: HttpClient) {
   }
